@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare basedir
-basedir="$( cd "$( dirname $0 )" && cd .. && pwd )"
+basedir="$( cd "$( dirname $0 )" && pwd )"
 readonly basedir
 
 declare targetdir
@@ -18,18 +18,20 @@ if [ ! -d "${targetdir}" ] ; then
   exit 0
 fi
 
+echo "terraforming directory '${targetdir}'.."
+
 # copy files 
-cp ${basedir}/.bashrc ${targetdir}
-cp ${basedir}/.bash_aliases ${targetdir}
-cp ${basedir}/.bash_colours ${targetdir}
-cp ${basedir}/.bash_login ${targetdir}
-cp ${basedir}/.bash_logout ${targetdir}
-cp ${basedir}/.bash_profile ${targetdir}
-cp ${basedir}/.gitconfig ${targetdir}
-cp ${basedir}/.gitignore ${targetdir}
-cp ${basedir}/.gvimrc ${targetdir}
-cp ${basedir}/.inputrc ${targetdir}
-cp ${basedir}/.profile ${targetdir}
-cp -r ${basedir}/.vim ${targetdir}
-cp ${basedir}/.vimrc ${targetdir}
+cp -v  ${basedir}/.bashrc ${targetdir}
+cp -v  ${basedir}/.bash_aliases ${targetdir}
+cp -v  ${basedir}/.bash_colours ${targetdir}
+cp -v  ${basedir}/.bash_login ${targetdir}
+cp -v  ${basedir}/.bash_logout ${targetdir}
+cp -v  ${basedir}/.bash_profile ${targetdir}
+cp -v  ${basedir}/.gitconfig ${targetdir}
+cp -v  ${basedir}/.gitignore ${targetdir}
+cp -v  ${basedir}/.gvimrc ${targetdir}
+cp -v  ${basedir}/.inputrc ${targetdir}
+cp -v  ${basedir}/.profile ${targetdir}
+cp -vr ${basedir}/.vim ${targetdir}
+cp -v  ${basedir}/.vimrc ${targetdir}
 
