@@ -1,0 +1,20 @@
+# ignore everything
+*
+
+# whitelist
+!.bashrc
+!.bash_aliases
+!.bash_colours
+!.bash_login
+!.bash_logout
+!.bash_profile
+!.gitconfig
+!.gitignore
+!.gvimrc
+!.inputrc
+!.profile
+!.vim
+!.vim/filetype.vim
+!.vim/bundle
+!.vimrc
+

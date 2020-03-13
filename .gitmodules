@@ -1,0 +1,6 @@
+[submodule ".vim/after"]
+	path = .vim/after
+	url = https://github.com/scimerc/vim-github-colorscheme.git
+[submodule ".vim/bundle/tabulous"]
+	path = .vim/bundle/tabulous
+	url = https://github.com/webdevel/tabulous.git

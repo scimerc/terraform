@@ -1,0 +1,12 @@
+# ~/.bash_login
+
+export INPUTRC="~/.inputrc"
+export LC_COLLATE="POSIX"
+export LC_ALL="POSIX"
+
+export CVSROOT=:pserver:${USER}@source:/cvsroot/statistics
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
