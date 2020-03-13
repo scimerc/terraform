@@ -18,3 +18,5 @@
 !.vim/bundle
 !.vimrc
 !terraform
+!sync-from
+!sync-to
