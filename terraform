@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+declare basedir
+basedir="$( cd "$( dirname $0 )" && cd .. && pwd )"
+readonly basedir
+
+declare targetdir
+targetdir="$1"
+readonly targetdir
+
+if [ "${targetdir}" == "" ] ; then
+  echo "usage: ${0##*/} <target directory>"
+  exit 0
+fi
+
+if [ ! -d "${targetdir}" ] ; then
+  echo "'${targetdir}' is not a directory."
+  exit 0
+fi
+
+# copy files 
+cp ${basedir}/.bashrc ${targetdir}
+cp ${basedir}/.bash_aliases ${targetdir}
+cp ${basedir}/.bash_colours ${targetdir}
+cp ${basedir}/.bash_login ${targetdir}
+cp ${basedir}/.bash_logout ${targetdir}
+cp ${basedir}/.bash_profile ${targetdir}
+cp ${basedir}/.gitconfig ${targetdir}
+cp ${basedir}/.gitignore ${targetdir}
+cp ${basedir}/.gvimrc ${targetdir}
+cp ${basedir}/.inputrc ${targetdir}
+cp ${basedir}/.profile ${targetdir}
+cp -r ${basedir}/.vim ${targetdir}
+cp ${basedir}/.vimrc ${targetdir}
+
