@@ -10,6 +10,9 @@
 !.bash_profile
 !.gitconfig
 !.gitignore
+!.gnome
+!.gnome/apps
+!.gnome/apps/*
 !.gvimrc
 !.inputrc
 !.profile
