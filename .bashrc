@@ -103,6 +103,9 @@ export LC_MONETARY="C"
 export LC_MESSAGES="C"
 export LC_PAPER="C"
 
+# define and export .inputrc file name
+export INPUTRC="~/.inputrc"
+
 # user specific paths added
 PATH=$PATH:$HOME/bin:$HOME/progs:$HOME/.local/bin
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/lib64:$HOME/lib
