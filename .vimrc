@@ -1,20 +1,36 @@
+set autoread
 set autoindent
 set backspace=indent,eol,start
 set binary
 set expandtab
 set list listchars=tab:»\ ,eol:$
+" set mouse=a
 set noeol
 set nowrap
 set number
 set ruler
+set runtimepath^=~/.vim/bundle/tabulous
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set tabpagemax=100
-highlight Comment cterm=italic ctermfg=LightBlue ctermbg=NONE
+highlight Comment cterm=NONE ctermfg=DarkBlue ctermbg=NONE
 highlight Cursor cterm=NONE ctermfg=Grey ctermbg=NONE
 highlight LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=LightGray guibg=NONE
 highlight NonText cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=LightGray guibg=NONE
+if !has( 'gui_running' )
+    colorscheme paper
+"     highlight DiffAdd cterm=NONE ctermbg=LightBlue
+"     highlight DiffDelete cterm=NONE ctermbg=LightBlue
+    highlight DiffChange cterm=NONE ctermbg=Blue
+    highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGrey
+    highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGrey
+    highlight TabLineFill cterm=NONE ctermbg=Black
+    highlight TabLineSel cterm=bold ctermbg=NONE ctermfg=Gray
+    highlight TabLine cterm=bold ctermbg=NONE ctermfg=DarkGray
+    highlight Visual cterm=NONE ctermbg=White
+endif
+vnoremap p "_dP
 " define comment functions
 " lhs comments
 map ,# :s/^/#/<CR>:nohlsearch<CR>
@@ -32,9 +48,6 @@ map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
 map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
 map ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
 map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
-
-" yank deleted text to the blackhole register when pasting over visual selection
-vnoremap p "_dP
 
 function! ExclamationComment()
   map - :s/^/! /<CR>:nohlsearch<CR>
@@ -73,4 +86,5 @@ autocmd FileType r call PoundComment()
 autocmd FileType sh call PoundComment()
 autocmd FileType tex call PercentComment()
 autocmd FileType vim call QuoteComment()
+
 
