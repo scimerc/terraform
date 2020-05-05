@@ -17,28 +17,6 @@ function mysqueue() {
 }
 export -f mysqueue
 
-function p33mkdir() {
-  local user=$1
-  chmod u+w /cluster/projects/p33/users
-  mkdir -p /cluster/projects/p33/users/${user#p33-}
-  mkdir -p /cluster/projects/p33/users/${user#p33-}/no-backup
-  chmod u-w /cluster/projects/p33/users
-  chmod u+w /tsd/p33/data/durable/characters
-  mkdir -p /tsd/p33/data/durable/characters/${user#p33-}
-  mkdir -p /tsd/p33/data/durable/characters/${user#p33-}/no-backup
-  chmod u-w /tsd/p33/data/durable/characters
-}
-export -f p33mkdir
-
-function p33mkalldir() {
-  for ddir in /tsd/p33/home/p33-* ; do
-    if [[ -d $ddir ]] ; then
-      p33mkdir $( basename $ddir )
-    fi
-  done
-}
-export -f p33mkalldir
-
 function bdy() {
   local argcnt=1
   local optcnt=1
