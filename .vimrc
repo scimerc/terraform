@@ -16,13 +16,14 @@ set tabstop=2
 set tabpagemax=100
 highlight Comment cterm=NONE ctermfg=DarkBlue ctermbg=NONE
 highlight Cursor cterm=NONE ctermfg=Grey ctermbg=NONE
-highlight LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=LightGray guibg=NONE
-highlight NonText cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=LightGray guibg=NONE
+highlight LineNr cterm=NONE ctermfg=DarkGrey gui=NONE guifg=LightGray guibg=NONE
+highlight NonText cterm=NONE ctermfg=DarkGrey gui=NONE guifg=LightGray guibg=NONE
 if !has( 'gui_running' )
     colorscheme paper
 "     highlight DiffAdd cterm=NONE ctermbg=LightBlue
 "     highlight DiffDelete cterm=NONE ctermbg=LightBlue
     highlight DiffChange cterm=NONE ctermbg=Blue
+    highlight LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE
     highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGrey
     highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGrey
     highlight TabLineFill cterm=NONE ctermbg=Black
