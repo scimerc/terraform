@@ -31,7 +31,9 @@
 !.profile
 !.vim
 !.vim/filetype.vim
-!.vim/bundle
+!.vim/tabnum.vim
+!.vim/plugin
+!.vim/plugin/AfterColors.vim
 !.vimrc
 !terraform
 !sync-from
