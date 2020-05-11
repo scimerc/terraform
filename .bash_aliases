@@ -17,6 +17,11 @@ function mysqueue() {
 }
 export -f mysqueue
 
+function mysrun() {
+  srun --ntasks=1 --mem-per-cpu=4G --qos=devel --account=nn9114k --pty $*
+}
+export -f mysrun
+
 function bdy() {
   local argcnt=1
   local optcnt=1
