@@ -23,11 +23,14 @@ echo "terraforming directory '${targetdir}'.."
 # sync files
 
 filelist=$(
-  find ${basedir} -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -print \
-    | sort | sed "s|^${basedir}/||g;"
+  find ${basedir} \
+    -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -type f -a -print \
+    | sort | sed "s|^${basedir}/*||g;"
 )
 
 for f in ${filelist} ; do
+  echo "syncing '${f}'.."
+  [ -d ${targetdir}/$( dirname ${f} ) ] || mkdir -p ${targetdir}/$( dirname ${f} )
   rsync -auv ${basedir}/${f} ${targetdir}/$( dirname ${f} )/
 done
 
