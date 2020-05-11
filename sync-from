@@ -18,20 +18,16 @@ if [ ! -d "${sourcedir}" ] ; then
   exit 0
 fi
 
-echo "terraforming directory '${sourcedir}'.."
+echo "cloning terraformed directory '${sourcedir}'.."
 
-# copy files 
-rsync -auv ${sourcedir}/.bashrc ${basedir}
-rsync -auv ${sourcedir}/.bash_aliases ${basedir}
-rsync -auv ${sourcedir}/.bash_colours ${basedir}
-rsync -auv ${sourcedir}/.bash_login ${basedir}
-rsync -auv ${sourcedir}/.bash_logout ${basedir}
-rsync -auv ${sourcedir}/.bash_profile ${basedir}
-rsync -auv ${sourcedir}/.gitconfig ${basedir}
-rsync -auv ${sourcedir}/.gitignore ${basedir}
-rsync -auv ${sourcedir}/.gvimrc ${basedir}
-rsync -auv ${sourcedir}/.inputrc ${basedir}
-rsync -auv ${sourcedir}/.profile ${basedir}
-rsync -auv ${sourcedir}/.vim ${basedir}
-rsync -auv ${sourcedir}/.vimrc ${basedir}
+# sync files
+
+filelist=$(
+  find ${basedir} -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -print \
+    | sort | sed "s|^${basedir}/||g;"
+)
+
+for f in ${filelist} ; do
+  rsync -auv ${sourcedir}/${f} ${basedir}/$( dirname ${f} )/
+done
 

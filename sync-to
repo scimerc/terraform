@@ -20,18 +20,14 @@ fi
 
 echo "terraforming directory '${targetdir}'.."
 
-# sync files 
-rsync -auv ${basedir}/.bashrc ${targetdir}
-rsync -auv ${basedir}/.bash_aliases ${targetdir}
-rsync -auv ${basedir}/.bash_colours ${targetdir}
-rsync -auv ${basedir}/.bash_login ${targetdir}
-rsync -auv ${basedir}/.bash_logout ${targetdir}
-rsync -auv ${basedir}/.bash_profile ${targetdir}
-rsync -auv ${basedir}/.gitconfig ${targetdir}
-rsync -auv ${basedir}/.gitignore ${targetdir}
-rsync -auv ${basedir}/.gvimrc ${targetdir}
-rsync -auv ${basedir}/.inputrc ${targetdir}
-rsync -auv ${basedir}/.profile ${targetdir}
-rsync -auv ${basedir}/.vim ${targetdir}
-rsync -auv ${basedir}/.vimrc ${targetdir}
+# sync files
+
+filelist=$(
+  find ${basedir} -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -print \
+    | sort | sed "s|^${basedir}/||g;"
+)
+
+for f in ${filelist} ; do
+  rsync -auv ${basedir}/${f} ${targetdir}/$( dirname ${f} )/
+done
 
