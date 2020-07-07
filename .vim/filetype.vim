@@ -9,6 +9,9 @@ augroup filetypedetect
     au! BufRead,BufNewFile *.perl setfiletype perl
 augroup END
 augroup filetypedetect
+    au! BufRead,BufNewFile *.py setfiletype python
+augroup END
+augroup filetypedetect
     au! BufRead,BufNewFile *.R,*.Rhistory*,*.Rscript setfiletype r
 augroup END
 augroup filetypedetect

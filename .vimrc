@@ -14,18 +14,18 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set tabpagemax=100
-highlight Comment cterm=NONE ctermfg=DarkBlue ctermbg=NONE
-highlight Cursor cterm=NONE ctermfg=Grey ctermbg=NONE
-highlight LineNr cterm=NONE ctermfg=DarkGrey gui=NONE guifg=LightGray guibg=NONE
-highlight NonText cterm=NONE ctermfg=DarkGrey gui=NONE guifg=LightGray guibg=NONE
+highlight Comment ctermfg=DarkBlue ctermbg=NONE
+highlight Cursor cterm=NONE ctermfg=Gray ctermbg=NONE
+highlight LineNr gui=NONE guifg=LightGray guibg=NONE
+highlight NonText gui=NONE guifg=LightGray guibg=NONE
+highlight Normal gui=NONE guifg=DarkGray guibg=NONE
 if !has( 'gui_running' )
-    colorscheme paper
 "     highlight DiffAdd cterm=NONE ctermbg=LightBlue
 "     highlight DiffDelete cterm=NONE ctermbg=LightBlue
-    highlight DiffChange cterm=NONE ctermbg=Blue
-    highlight LineNr cterm=NONE ctermfg=DarkGrey ctermbg=NONE
-    highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGrey
+    highlight DiffChange cterm=NONE ctermbg=DarkBlue
+    highlight LineNr cterm=NONE ctermbg=NONE ctermfg=DarkGrey
     highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGrey
+    highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGrey
     highlight TabLineFill cterm=NONE ctermbg=Black
     highlight TabLineSel cterm=bold ctermbg=NONE ctermfg=Gray
     highlight TabLine cterm=bold ctermbg=NONE ctermfg=DarkGray
@@ -83,9 +83,9 @@ autocmd FileType csh call PoundComment()
 autocmd FileType java call SlashComment()
 autocmd FileType matlab call PercentComment()
 autocmd FileType perl call PoundComment()
+autocmd FileType python call PoundComment()
 autocmd FileType r call PoundComment()
 autocmd FileType sh call PoundComment()
 autocmd FileType tex call PercentComment()
 autocmd FileType vim call QuoteComment()
-
 

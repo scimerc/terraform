@@ -1,5 +1,13 @@
 # user specific aliases and functions
 
+export AWKPATH="/$HOME/lib/awk"
+export AWK_INCLUDE="\
+    -f $HOME/lib/awk/abs.awk \
+    -f $HOME/lib/awk/nucleocode.awk \
+    -f $HOME/lib/awk/genotype.awk \
+    -f $HOME/lib/awk/gflipper.awk \
+"
+
 alias joint="join --check-order -t $'\t'"
 alias sortt="sort -t $'\t'"
 alias tawk="awk -F $'\t'"
