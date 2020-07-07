@@ -23,9 +23,9 @@ if !has( 'gui_running' )
 "     highlight DiffAdd cterm=NONE ctermbg=LightBlue
 "     highlight DiffDelete cterm=NONE ctermbg=LightBlue
     highlight DiffChange cterm=NONE ctermbg=DarkBlue
-    highlight LineNr cterm=NONE ctermbg=NONE ctermfg=DarkGrey
-    highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGrey
-    highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGrey
+    highlight LineNr cterm=NONE ctermbg=NONE ctermfg=DarkGray
+    highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGray
+    highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGray
     highlight TabLineFill cterm=NONE ctermbg=Black
     highlight TabLineSel cterm=bold ctermbg=NONE ctermfg=Gray
     highlight TabLine cterm=bold ctermbg=NONE ctermfg=DarkGray
