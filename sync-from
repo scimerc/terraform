@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ETeuo pipefail
+
 declare basedir
 basedir="$( cd "$( dirname $0 )" && pwd )"
 readonly basedir
@@ -31,6 +33,11 @@ filelist=$(
 for f in ${filelist} ; do
   echo "syncing '${f}'.."
   [ -d ${basedir}/$( dirname ${f} ) ] || mkdir -p ${basedir}/$( dirname ${f} )
-  rsync -auv ${sourcedir}/${f} ${basedir}/$( dirname ${f} )/
+  if [ -f ${sourcedir}/${f} ] ; then
+    rsync -av ${sourcedir}/${f} ${basedir}/$( dirname ${f} )/
+  else
+    rm ${f}
+  fi
+  echo -e "done.\n"
 done
 
