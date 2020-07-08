@@ -118,6 +118,6 @@ export PERL5LIB
 export PIP_REQUIRE_VIRTUALENV=true
 export WORKON_HOME=~/.virtualenvs/
 if [ -s ~/.local/bin/virtualenvwrapper.sh ] ; then
-  source ~/.local/bin/virtualenvwrapper.sh 
+  source ~/.local/bin/virtualenvwrapper.sh
 fi
 
