@@ -32,7 +32,7 @@ filelist=$(
 
 for f in ${filelist} ; do
   echo "syncing '${f}'.."
-  [ -d ${targetdir}/$( dirname ${f} ) ] || mkdir -p ${targetdir}/$( dirname ${f} )
+  [ -d ${targetdir}/$( dirname ${f} ) ] || mkdir -pv ${targetdir}/$( dirname ${f} )
   rsync -av ${basedir}/${f} ${targetdir}/$( dirname ${f} )/
   echo -e "done.\n"
 done
