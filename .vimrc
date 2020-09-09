@@ -1,6 +1,7 @@
 set autoread
 set autoindent
 set backspace=indent,eol,start
+set belloff=all
 set binary
 set expandtab
 set list listchars=tab:»\ ,eol:$
@@ -29,7 +30,7 @@ if !has( 'gui_running' )
     highlight TabLineFill cterm=NONE ctermbg=Black
     highlight TabLineSel cterm=bold ctermbg=NONE ctermfg=Gray
     highlight TabLine cterm=bold ctermbg=NONE ctermfg=DarkGray
-    highlight Visual cterm=NONE ctermbg=White
+    highlight Visual ctermbg=DarkGray
 endif
 vnoremap p "_dP
 " define comment functions
