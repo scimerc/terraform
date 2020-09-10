@@ -21,9 +21,10 @@ highlight LineNr gui=NONE guifg=LightGray guibg=NONE
 highlight NonText gui=NONE guifg=LightGray guibg=NONE
 highlight Normal gui=NONE guifg=DarkGray guibg=NONE
 if !has( 'gui_running' )
-"     highlight DiffAdd cterm=NONE ctermbg=LightBlue
-"     highlight DiffDelete cterm=NONE ctermbg=LightBlue
+    highlight DiffAdd cterm=NONE ctermbg=DarkGreen
+    highlight DiffDelete cterm=NONE ctermbg=DarkRed
     highlight DiffChange cterm=NONE ctermbg=DarkBlue
+    highlight DiffText cterm=NONE ctermbg=Blue ctermfg=Gray
     highlight LineNr cterm=NONE ctermbg=NONE ctermfg=DarkGray
     highlight NonText cterm=NONE ctermbg=NONE ctermfg=DarkGray
     highlight Normal cterm=NONE ctermbg=NONE ctermfg=LightGray
