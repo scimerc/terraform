@@ -40,7 +40,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-# force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -53,7 +53,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1="\[$(tput -T ${TERM} bold)\][\u@\h]#\# \t (\W): \[$(tput -T ${TERM} sgr0)\]"
+if [ "$color_prompt" = yes ]; then
+    PS1='\[$(tput -T ${TERM} bold)\]\[\033[01;32m\]\u@\h\[\033[00m\]#\# \t (\[\033[01;34m\]\W\[\033[00m\]): \[$(tput -T ${TERM} sgr0)\]'
+fi
 unset color_prompt force_color_prompt
 
 # enable color support of ls and also add handy aliases
