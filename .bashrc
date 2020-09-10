@@ -54,7 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[$(tput -T ${TERM} bold)\]\[\033[01;32m\]\u@\h\[\033[00m\]#\# \t (\[\033[01;34m\]\W\[\033[00m\]): \[$(tput -T ${TERM} sgr0)\]'
+    PS1='\[$(tput -T ${TERM} bold)\]\[\033[01;33m\]\u@\h\[\033[00m\]#\# \t (\[\033[01;35m\]\W/\[\033[00m\]): \[$(tput -T ${TERM} sgr0)\]'
 fi
 unset color_prompt force_color_prompt
 
