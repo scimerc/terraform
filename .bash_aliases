@@ -1,11 +1,12 @@
 # user specific aliases and functions
 
-export AWKPATH="/$HOME/lib/awk"
+export AWKPATH="${AWKPATH}:$HOME/lib/awk:$HOME/.local/lib/awk"
 export AWK_INCLUDE="\
-    -f $HOME/lib/awk/abs.awk \
-    -f $HOME/lib/awk/nucleocode.awk \
-    -f $HOME/lib/awk/genotype.awk \
-    -f $HOME/lib/awk/gflipper.awk \
+    -f abs.awk \
+    -f nucleocode.awk \
+    -f genotype.awk \
+    -f gflip.awk \
+    -f gmatch.awk \
 "
 
 alias joint="join --check-order -t $'\t'"
@@ -62,6 +63,16 @@ function bdy() {
   fi
 }
 export -f bdy
+
+rename() {
+  local -r fromtext=$1
+  local -r totext=$2
+  shift 2
+  for f in "$@" ; do
+    [ -e "$f" ] && mv $f ${f/${fromtext}/${totext}}
+  done
+}
+export -f rename
 
 tab() {
   sed -r 's/[ \t]+/\t/g;' "${*:-/dev/stdin}"

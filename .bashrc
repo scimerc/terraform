@@ -112,11 +112,13 @@ export INPUTRC="~/.inputrc"
 PATH=$PATH:$HOME/bin:$HOME/progs:$HOME/.local/bin
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/lib64:$HOME/lib
 LIBRARY_PATH=$LIBRARY_PATH:/usr/lib:/usr/lib64:$HOME/lib
-PERL5LIB=$PERL5LIB:$HOME/lib/perl
+PERL5LIB=$HOME/.local/lib/perl5
 export PATH
 export LD_LIBRARY_PATH
 export LIBRARY_PATH
 export PERL5LIB
+export PERL_MM_OPT="INSTALL_BASE=$HOME/.local"
+export PERL_MB_OPT="--install_base $HOME/.local"
 export PIP_REQUIRE_VIRTUALENV=true
 export WORKON_HOME=~/.virtualenvs/
 if [ -s ~/.local/bin/virtualenvwrapper.sh ] ; then
