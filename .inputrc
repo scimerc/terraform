@@ -3,4 +3,6 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 "\e[A":history-search-backward
 "\e[B":history-search-forward
-"\M-w":unix-word-rubout
+"\M-d":shell-kill-word
+"\M-w":shell-backward-kill-word
+
