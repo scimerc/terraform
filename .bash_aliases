@@ -31,6 +31,14 @@ function mysrun() {
 }
 export -f mysrun
 
+function myssh() {
+  false
+  while [ $? -ne 0 ]; do
+    ssh $*
+  done
+}
+export -f myssh
+
 function bdy() {
   local argcnt=1
   local optcnt=1
