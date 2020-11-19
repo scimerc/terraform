@@ -31,6 +31,14 @@ function mysrun() {
 }
 export -f mysrun
 
+function myscp() {
+  false
+  while [ $? -ne 0 ]; do
+    scp $*
+  done
+}
+export -f myscp
+
 function myssh() {
   false
   while [ $? -ne 0 ]; do
