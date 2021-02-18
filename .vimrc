@@ -1,7 +1,6 @@
 set autoread
 set autoindent
 set backspace=indent,eol,start
-set belloff=all
 set binary
 set expandtab
 set list listchars=tab:»\ ,eol:$
@@ -83,6 +82,7 @@ autocmd FileType bash call PoundComment()
 autocmd FileType cgi call PoundComment()
 autocmd FileType csh call PoundComment()
 autocmd FileType java call SlashComment()
+autocmd FileType make call PoundComment()
 autocmd FileType matlab call PercentComment()
 autocmd FileType perl call PoundComment()
 autocmd FileType python call PoundComment()

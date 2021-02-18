@@ -21,6 +21,11 @@ alias mycompdate="date '+%Y%m%d'"
 alias perlex="perl -p -e"
 alias t='transpose.perl'
 
+function gfind() {
+  find . -type f -exec grep -n "$@" '{}' \+ 2>&1 | grep "$@"
+}
+export -f gfind
+
 function mysqueue() {
   squeue --format='%A %j %c %C %d %D %f %m %R %S %t %v %X %Y %z' --sort='-t,i' $* | column -t
 }
