@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -ETeuo pipefail
+
+declare basedir
+basedir="$( cd "$( dirname $0 )" && pwd )"
+readonly basedir
+
+declare targetdir
+targetdir="$1"
+readonly targetdir
+
+if [ "${targetdir}" == "" ] ; then
+  echo "usage: ${0##*/} <target directory>"
+  exit 0
+fi
+
+if [ ! -d "${targetdir}" ] ; then
+  echo "'${targetdir}' is not a directory."
+  exit 0
+fi
+
+echo "terraforming directory '${targetdir}'.."
+
+# sync files
+
+filelist=$(
+  find ${basedir} \
+    -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -type f -a -print \
+    | sort | sed "s|^${basedir}/*||g;"
+)
+
+for f in ${filelist} ; do
+  echo "syncing '${f}'.."
+  [ -d ${targetdir}/$( dirname ${f} ) ] || mkdir -pv ${targetdir}/$( dirname ${f} )
+  rsync -av ${basedir}/${f} ${targetdir}/$( dirname ${f} )/
+  echo -e "done.\n"
+done
+

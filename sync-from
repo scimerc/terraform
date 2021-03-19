@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -ETeuo pipefail
+
+declare basedir
+basedir="$( cd "$( dirname $0 )" && pwd )"
+readonly basedir
+
+declare sourcedir
+sourcedir="$1"
+readonly sourcedir
+
+if [ "${sourcedir}" == "" ] ; then
+  echo "usage: ${0##*/} <source directory>"
+  exit 0
+fi
+
+if [ ! -d "${sourcedir}" ] ; then
+  echo "'${sourcedir}' is not a directory."
+  exit 0
+fi
+
+echo "cloning terraformed directory '${sourcedir}'.."
+
+# sync files
+
+filelist=$(
+  find ${basedir} \
+    -name 'sync-to' -o -name 'sync-from' -o -name '*.git*' -a -prune -o -type f -a -print \
+    | sort | sed "s|^${basedir}/*||g;"
+)
+
+for f in ${filelist} ; do
+  echo "syncing '${f}'.."
+  [ -d ${basedir}/$( dirname ${f} ) ] || mkdir -pv ${basedir}/$( dirname ${f} )
+  if [ -f ${sourcedir}/${f} ] ; then
+    rsync -av ${sourcedir}/${f} ${basedir}/$( dirname ${f} )/
+  else
+    rm ${f}
+  fi
+  echo -e "done.\n"
+done
+
