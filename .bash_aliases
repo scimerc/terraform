@@ -52,6 +52,14 @@ function myssh() {
 }
 export -f myssh
 
+function mysshfs() {
+  false
+  while [ $? -ne 0 ]; do
+    sshfs $*
+  done
+}
+export -f mysshfs
+
 function bdy() {
   local argcnt=1
   local optcnt=1
