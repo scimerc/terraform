@@ -124,6 +124,6 @@ export WORKON_HOME=~/.virtualenvs/
 if [ -s ~/.local/bin/virtualenvwrapper.sh ] ; then
   source ~/.local/bin/virtualenvwrapper.sh
 elif [ -s /usr/local/bin/virtualenvwrapper.sh ] ; then
-  source /usr/local/bin/virtualenvwrapper.sh ]
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
 
