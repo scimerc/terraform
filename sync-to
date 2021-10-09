@@ -6,6 +6,12 @@ declare basedir
 basedir="$( cd "$( dirname $0 )" && pwd )"
 readonly basedir
 
+if [ "${1:+q}" != "q" ] ; then
+  echo 'no target directory specified.'
+  echo "usage: $( basename $0 ) <target dir>"
+  exit 1
+fi
+
 declare targetdir
 targetdir="$1"
 readonly targetdir
