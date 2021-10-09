@@ -1,8 +1,10 @@
 set autoread
 set autoindent
 set backspace=indent,eol,start
+set belloff=all
 set binary
 set expandtab
+set hlsearch
 set list listchars=tab:»\ ,eol:$
 " set mouse=a
 set noeol
