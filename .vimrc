@@ -83,6 +83,7 @@ endfunction
 autocmd FileType bash call PoundComment()
 autocmd FileType cgi call PoundComment()
 autocmd FileType csh call PoundComment()
+autocmd FileType dockerfile call PoundComment()
 autocmd FileType java call SlashComment()
 autocmd FileType make call PoundComment()
 autocmd FileType matlab call PercentComment()
