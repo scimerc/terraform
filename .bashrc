@@ -108,6 +108,9 @@ export LC_PAPER="C"
 # define and export .inputrc file name
 export INPUTRC="~/.inputrc"
 
+# enable docker buildkit
+export DOCKER_BUILDKIT=1
+
 # user specific paths added
 PATH=$PATH:$HOME/bin:$HOME/progs:$HOME/.local/bin
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib:/usr/lib64:$HOME/lib
