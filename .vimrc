@@ -6,7 +6,6 @@ set binary
 set expandtab
 set hlsearch
 set list listchars=tab:»\ ,eol:$
-" set mouse=a
 set noeol
 set nowrap
 set number
