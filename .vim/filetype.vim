@@ -21,6 +21,9 @@ augroup filetypedetect
     au! BufRead,BufNewFile *.py setfiletype python
 augroup END
 augroup filetypedetect
+    au! BufRead,BufNewFile *.sql setfiletype sql
+augroup END
+augroup filetypedetect
     au! BufRead,BufNewFile *.tex setfiletype tex
 augroup END
 

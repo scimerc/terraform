@@ -52,6 +52,11 @@ map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR>
 map ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR>
 map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
 
+function! DoubleHyphenComment()
+  map - :s/^/-- /<CR>:nohlsearch<CR>
+  map _ :s/^\s*-- \=//<CR>:nohlsearch<CR>
+endfunction
+
 function! ExclamationComment()
   map - :s/^/! /<CR>:nohlsearch<CR>
   map _ :s/^\s*! \=//<CR>:nohlsearch<CR>
@@ -90,6 +95,7 @@ autocmd FileType perl call PoundComment()
 autocmd FileType python call PoundComment()
 autocmd FileType r call PoundComment()
 autocmd FileType sh call PoundComment()
+autocmd FileType sql call DoubleHyphenComment()
 autocmd FileType tex call PercentComment()
 autocmd FileType vim call QuoteComment()
 
